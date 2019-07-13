@@ -48,7 +48,7 @@ BstNode* Insert(BstNode* root, char data) {
 
 //=============================Creating BST===============================//
 
-//=============================Level Order Traversal===============================//
+//=============================Breadth First: Level Order Traversal===============================//
 
 void LevelOrder(BstNode* root) {
 	if (root == NULL)
@@ -70,8 +70,47 @@ void LevelOrder(BstNode* root) {
 	}
 }
 
-//=============================Level Order Traversal===============================//
+//=============================Breadth First: Level Order Traversal===============================//
 
+//=============================Depth First Traversal==============================================//
+
+//PreOrder Traversal
+//visiting <root> <left subtree> <right subtree>
+void Preorder(BstNode* root){
+
+	if( root == NULL){
+		return;
+	}
+	cout << root->data << " "; // <root> print root element
+	Preorder(root->left);	   // <left subtree> go to left subtree first
+	Preorder(root->right);	   // <right subtree> go to right subtree second
+}
+
+//InOrder Traversal
+//visiting  <left subtree> <root> <right subtree>
+void Inorder(BstNode* root){
+
+	if( root == NULL){
+		return;
+	}
+	Inorder(root->left);	   // <left subtree> go to left subtree first
+	cout << root->data << " "; // <root> print root element
+	Inorder(root->right);	   // <right subtree> go to right subtree second
+}
+
+//PostOrder Traversal
+//visiting  <left subtree> <right subtree> <root>
+void Postorder(BstNode* root){
+
+	if( root == NULL){
+		return;
+	}
+	Postorder(root->left);	   // <left subtree> go to left subtree first
+	Postorder(root->right);	   // <right subtree> go to right subtree second
+	cout << root->data << " "; // <root> print root element
+}
+
+//=============================Depth First Traversal==============================================//
 int main() {
 
 	BstNode* root = NULL; // pointer to root node and making the tree as empty
@@ -102,6 +141,16 @@ int main() {
 
 	cout << "Level Order Traversal: " ;
 	LevelOrder(root); // Output: F D J B E G K A C I H
+
+	cout << endl << "Pre-order Traversal: " ;
+	Preorder(root); // Output: F D B A C E J G I H K
+
+	cout << endl << "In-order Traversal: " ;
+	Inorder(root); // Output: A B C D E F G H I J K
+	// In order traversal of a BST leaves us a sorted list!
+
+	cout << endl << "Post-order Traversal: " ;
+	Postorder(root); // Output: A C B E D H I G K J F
 
 	return 0;
 }
