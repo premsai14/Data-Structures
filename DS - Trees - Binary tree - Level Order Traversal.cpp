@@ -76,15 +76,15 @@ int main() {
 
 	BstNode* root = NULL; // pointer to root node and making the tree as empty
 
-	/*									F
-	 * 								 /		\
-	 * 								 D		 J
-	 * 							   /   \	/  \
-	 * 							  B     E  G    K
-	 * 							 / \	    \
-	 * 							A   C		 I
-	 * 										/
-	 * 									   H
+	/*					F
+	 * 				 /		\
+	 * 				 D		 J
+	 * 		               /   \		/  \
+	 * 			      B     E          G    K
+	 * 		       	     / \	        \
+	 * 		     	    A   C		 I
+	 * 				  		/
+	 * 					       H
 	 */
 
 	root = Insert(root, 'F'); // ROOT
